@@ -14,28 +14,11 @@ body {
   display: none;
 }
 
-.of{
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-lines: 1 !important;
-}
-
 /* Hide scrollbar for IE, Edge and Firefox */
 .hide-scrollbar {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
-/* ::-webkit-textfield-decoration-container { 
-  -webkit-appearance: none;
-} */
-/* ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-} */
 
 
 @layer components {

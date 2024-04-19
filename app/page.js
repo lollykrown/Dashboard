@@ -60,7 +60,7 @@ export default function Home() {
             <p className='text-xs text-slate-400 '>Updated 1 month ago</p>
           </div>
           <div className='my-4 flex justify-between flex-wrap'>
-            <div className='flex space-x-3'>
+            <div className='flex space-x-3 my-2'>
               <svg className="w-9 h-9 self-center bg-btncolor-300 p-1.5 rounded-full stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
@@ -70,7 +70,7 @@ export default function Home() {
                 <p className='text-xs text-slate-500 '>Sales</p>
               </div>
             </div>
-            <div className='flex space-x-3'>
+            <div className='flex space-x-3 my-2'>
               <svg className="w-9 h-9 self-center bg-cyan-100 p-1.5 rounded-full stroke-cyan-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#00CFE8">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" />
               </svg>
@@ -79,7 +79,7 @@ export default function Home() {
                 <p className='text-xs text-slate-500 '>Customers</p>
               </div>
             </div>
-            <div className='flex space-x-3'>
+            <div className='flex space-x-3 my-2'>
               <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9 self-center bg-red-200 p-1.5 rounded-full stroke-red-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
@@ -88,7 +88,7 @@ export default function Home() {
                 <p className='text-xs text-slate-500 '>Products</p>
               </div>
             </div>
-            <div className='flex space-x-3 mr-8'>
+            <div className='flex space-x-3 mr-8 my-2'>
               <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9 self-center bg-emerald-100 p-1.5 rounded-full stroke-emerald-400" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
@@ -235,21 +235,19 @@ export default function Home() {
           <p className='text-xs text-slate-400 mx-0 mb-3'>Total 10.4k Visitors</p>
 
           <div>
-            {products.slice(0,6).map(p=>
-              (
-              <div className='flex justify-between my-4' key={p.id}>
+            {products.slice(0,8).map(p=>(
+            <div className='flex justify-between my-4' key={p.id}>
               <div className='flex'>
                 <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48} objectFit='contain' />
                 <div>
-                  <p className='text-xs  text-slate-600 of'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
+                  <p className='text-xs  text-slate-600'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
                   <p className='text-[11px] text-slate-400 mx-0'>Item: {p.category}</p>
                 </div>
               </div>
               <p className='text-md  text-slate-600 self-center'>${p.price}</p>
-            </div>
-          )
+            </div>)
             )}
-        </div>
+          </div>
         </div>
 
         <div className=' bg-white p-3 col-span-3 md:col-span-1'>
