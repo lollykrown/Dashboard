@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+
+body {
+  font-family: "Public Sans", sans-serif;
+  background-color: #F8F7FA;
+  font-weight: 300;
+}
+.half-circle {
+  width: 200px;
+  height: 100px; /* as the half of the width */
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-top: 19px solid gray;
+  border-right: 19px solid gray;
+  border-left: 19px solid transparent;
+  outline: yellow;
+  /* border-bottom: 19px solid gray; */
+  border-bottom: 0;
+
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* .partial-circle {
+  position: relative;
+  height: 20px;
+  width: 100px;
+  overflow: hidden;
+}
+.partial-circle:before {
+  content: '';
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  bottom: 0;
+  background: #D08707; */
+
+@layer components {
+  .sidelinks {
+    @apply items-center hover:bg-gray-100 hover:scale-105 hover:text-btncolor-main flex justify-between rounded cursor-pointer my-2 p-2
+  }
+  .btn {
+    @apply bg-gradient-to-r from-btncolor-main to-btncolor-600 px-4 py-1.5 text-white rounded	
+    shadow-md shadow-btncolor-500/50 capitalize hover:scale-105 transition duration-300 ease-in-out
+  }
+
+}
+
+
+@tailwind utilities;
