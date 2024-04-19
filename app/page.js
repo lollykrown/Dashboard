@@ -2,11 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { SIDE_LINKS } from '../constants'
-import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart } from '../components/charts'
+import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } from '../components/charts'
 
-import Chart from 'chart.js/auto';
+import products from '../utils/products'
+
 
 export default function Home() {
+  console.log(products[0])
+
+
   return (
     <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
@@ -19,13 +23,15 @@ export default function Home() {
           <ul className='text-slate-600'>
             {
               SIDE_LINKS.map((link)=> (
-                <li className='sidelinks' key={link.id}>
+                <Link href={`/${link.name ==='dashboard'?'/':link.name}`}  key={link.id}>
+                <li className='sidelinks'>
                   <div className='flex space-x-2 items-center capitalize'>
-                    {link.icon}
-                    <Link href={`/${link.name ==='dashboard'?'/':link.name}`}>{link.name}</Link> 
+                    {link.icon}&nbsp;
+                    {link.name}
                   </div>   
                     {link.arrow}
                 </li>
+                </Link> 
               ))
             }
    
@@ -53,7 +59,7 @@ export default function Home() {
             <p className='text-base'>Statistics</p>
             <p className='text-xs text-slate-400 '>Updated 1 month ago</p>
           </div>
-          <div className='my-4 flex justify-between'>
+          <div className='my-4 flex justify-between flex-wrap'>
             <div className='flex space-x-3'>
               <svg className="w-9 h-9 self-center bg-btncolor-300 p-1.5 rounded-full stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
@@ -94,8 +100,8 @@ export default function Home() {
           </div>
         </div>
         {/* 2nd section */}
-        <div className='col-span-3 md:col-span-1 grid grid-cols-2 gap-4'>
-            <div className=' bg-white px-3 py-2'>
+        <div className='col-span-3 md:col-span-1 grid grid-cols-2 lg:gap-4'>
+            <div className=' bg-white px-3 py-2 mb-4 lg:mb-0' >
                   <p className='text-base mt-2 text-slate-500'>$82.5k</p>
                   <p className='text-xs text-slate-400 mb-3'>Expenses</p>
                   <div className=''>
@@ -104,9 +110,9 @@ export default function Home() {
                       $21k Expenses more than last month</p>
                   </div>
             </div>
-            <div className=' bg-white px-3 py-2'>
+            <div className=' bg-white px-3 py-2 ml-4 lg:ml-0 mb-4 lg:mb-0'>
                 <p className='text-base mt-2 text-slate-500'>Profit</p>
-                <p className='text-xs text-slate-400 mb-3'>Expenses</p>
+                <p className='text-xs text-slate-400 mb-3'>Last Month</p>
                 <div className=''>
                   <div className='h-16 w-28'><LineChart /></div>
                   <div className='flex justify-between'>
@@ -115,13 +121,17 @@ export default function Home() {
                   </div>
                 </div>
             </div>
-
             <div className='col-span-3 md:col-span-2 bg-white px-3 py-2 flex justify-between'>
             <div>
               <p className='text-base mt-2 text-slate-500'>Generated Leads</p>
               <p className='text-xs text-slate-400 mb-3'>Monthly report</p>
               <p className='text-xl mt-3 py-1'>4,350</p>
-              <p className='text-xs text-green-main self-center'>&#94;15.8%</p>
+              <div className='flex'>
+                <svg className="w-4 h-4 self-end text-green-main" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+                </svg>
+                <p className='text-xs text-green-main self-center'>15.8%</p>
+              </div>
             </div>
             <Circle percent={184}/>
           </div>
@@ -151,7 +161,7 @@ export default function Home() {
           </div>
         </div>
         {/* 3rd section */}
-        <div className=' bg-white py-3 px-3 col-span-3 md:col-span-1'>
+        <div className=' bg-white p-3 col-span-3 md:col-span-1'>
           <div className=' bg-white flex justify-between'>
             <p className='text-base mt-2 text-slate-500'>Earning Reports</p>
             <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
@@ -195,7 +205,7 @@ export default function Home() {
               <p className='ml-1 self-end text-[11px] text-slate-400 mx-0'>39.6%</p>
             </div>
           </div>
-          <div className='flex justify-between mb-1'>
+          <div className='flex justify-between mb-3'>
             <div className='flex mt-2'>
               <svg className="w-7 h-7 self-center bg-stone-200 p-1.5  stroke-stone-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
@@ -215,12 +225,39 @@ export default function Home() {
           
 
           </div>
+          <RBarChart position={2}/>
         </div>
-        <div className=' bg-white pt-3 col-span-3 md:col-span-1 space-x-5'>
-            kjhgfdghjkgfhfgjhfgf
+        <div className=' bg-white p-3 col-span-3 md:col-span-1'>
+          <div className=' bg-white flex justify-between'>
+            <p className='text-base mt-2 text-slate-500'>Popular Products</p>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+          </div>
+          <p className='text-xs text-slate-400 mx-0 mb-3'>Total 10.4k Visitors</p>
+
+          <div>
+            {products.slice(0,6).map(p=>
+              (
+              <div className='flex justify-between my-4' key={p.id}>
+              <div className='flex'>
+                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48} objectFit='contain' />
+                <div>
+                  <p className='text-xs  text-slate-600 of'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
+                  <p className='text-[11px] text-slate-400 mx-0'>Item: {p.category}</p>
+                </div>
+              </div>
+              <p className='text-md  text-slate-600 self-center'>${p.price}</p>
+            </div>
+          )
+            )}
         </div>
-        <div className=' bg-white pt-3 col-span-3 md:col-span-1 space-x-5'>
-            kjhgfdghjkgfhfgjhfgf
+        </div>
+
+        <div className=' bg-white p-3 col-span-3 md:col-span-1'>
+          <div className=' bg-white flex justify-between'>
+            <p className='text-base mt-2 text-slate-500'>Sales by Orders</p>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+          </div>
+          <p className='text-xs text-slate-400 mx-0 mb-3'>62 deliveries in progress</p>
         </div>
       </div>
     </main>

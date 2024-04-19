@@ -53,8 +53,11 @@ const ProgressBar = ({percent}) => {
 const LineChart = () => {
   const options = {
     scales:{
-      x:{display: false},
-      y:{display: false}
+      x:{
+        grid:{display: true},
+        ticks: { display: false},
+      },
+      y:{display: false},
     },
     responsive: true,
     plugins: {
@@ -203,14 +206,99 @@ const BarChart = () => {
             legend: {
               display: false
             },
-
           },
           offsetGridLines: true,
           drawTicks: true,
           responsive: true,
           maintainAspectRatio: true,
           scales: {
-            x:{display: false},
+            x:{
+              grid:{display: false}
+            },
+            y:{
+              grid:{display: false}
+            },
+            xAxes: [
+              {
+                stacked: true,
+                ticks: {
+                  padding: 5
+                },
+                gridLines: {
+                  display: false
+                }
+              }
+            ],
+            yAxes: [
+              {
+                stacked: true,
+                gridLines: {
+                  drawBorder: false
+                },
+                ticks: {
+                  beginAtZero: true,
+                  maxTicksLimit: 6,
+                  padding: 20,
+                  // callback(n) {
+                  //   if (n < 1e3) return n;
+                  //   if (n >= 1e3) return +(n / 1e3).toFixed(1) + "K";
+                  // }
+                }
+              }
+            ]
+          }
+        }}
+      />
+    </div>
+  );
+};
+const RBarChart = ({position}) => {
+  const data = {
+    labels: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
+    previousDate: {
+      dataSet: [100, 550, 150,300, 250, 500,150]
+    },
+  };
+  let colorSpectrum = [
+    "#d5d1fb",
+    "#d5d1fb",
+    "#d5d1fb",
+    "#d5d1fb",
+    "#d5d1fb",
+    "#d5d1fb",
+  ]
+  colorSpectrum.splice(position-1, 0, "#7367f0")
+  return (
+    <div className="">
+      <Bar
+        data={{
+          labels: data.labels,
+          responsive: true,
+          offset: true,
+          datasets: [
+            {
+              label: "Earnings",
+              backgroundColor: colorSpectrum,
+              barThickness: 20,
+              categoryPercentage: 1,
+              borderRadius:'5',
+              data: data.previousDate.dataSet //From API
+            }
+          ]
+        }}
+        height={220}
+        options={{
+          plugins: {
+            legend: {
+              display: false
+            },
+          },
+          offsetGridLines: true,
+          drawTicks: true,
+          responsive: true,
+          maintainAspectRatio: true,
+          scales: {
+            x:{grid:{display: false}},
             y:{display: false},
             xAxes: [
               {
@@ -251,5 +339,6 @@ export {
   LineChart,
   CurlyLineChart,
   Circle,
-  BarChart
+  BarChart,
+  RBarChart
 }
