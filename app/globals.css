@@ -8,37 +8,17 @@ body {
   background-color: #F8F7FA;
   font-weight: 300;
 }
-.half-circle {
-  width: 200px;
-  height: 100px; /* as the half of the width */
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-top: 19px solid gray;
-  border-right: 19px solid gray;
-  border-left: 19px solid transparent;
-  outline: yellow;
-  /* border-bottom: 19px solid gray; */
-  border-bottom: 0;
 
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+/* ::-webkit-textfield-decoration-container { 
+  -webkit-appearance: none;
+} */
+/* ::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
+::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+} */
 
-/* .partial-circle {
-  position: relative;
-  height: 20px;
-  width: 100px;
-  overflow: hidden;
-}
-.partial-circle:before {
-  content: '';
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  bottom: 0;
-  background: #D08707; */
 
 @layer components {
   .sidelinks {

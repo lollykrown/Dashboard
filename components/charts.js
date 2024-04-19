@@ -84,7 +84,40 @@ const LineChart = () => {
       <Line data={data} options={options}/>
   );
 };
+const CurlyLineChart = ({color}) => {
+  const options = {
+    scales:{
+      x:{display: false},
+      y:{display: false}
+    },
+    responsive: true,
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        enabled: false
+      }
+    },
+  };
+  const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June','Jul','Aug','Sep'];
 
+  const data = {
+    labels,
+    datasets: [
+      {
+        data: [20,10,50,30,45,15,80,44,55],
+        borderColor: color,
+        backgroundColor: color,
+        tension: 0.3
+      },
+    ],
+  };
+
+  return (
+      <Line data={data} options={options}/>
+  );
+};
 const Circle = ({percent}) => {
   const data = {
     datasets: [
@@ -103,7 +136,7 @@ const Circle = ({percent}) => {
   };
 
   return (
-    <div className='relative w-32 h-32'>
+    <div className='relative w-32 h-36'>
       <Doughnut
         data={data}
         options={{
@@ -141,7 +174,6 @@ const BarChart = () => {
   return (
     <div className="">
       <Bar
-        pointStyle="star"
         data={{
           labels: data.labels,
           responsive: true,
@@ -149,7 +181,6 @@ const BarChart = () => {
           datasets: [
             {
               label: "Earnings",
-              pointStyle: "rectRounded",
               backgroundColor: "#7367f0",
               barThickness: 8,
               categoryPercentage: 1,
@@ -161,7 +192,6 @@ const BarChart = () => {
               backgroundColor: "#FF9F43",
               barThickness: 8,
               categoryPercentage: 1,
-              pointStyle: "triangle",
               borderRadius:'50',
               data: data.currentDate.dataSet //From API
             }
@@ -219,6 +249,7 @@ const BarChart = () => {
 export {
   ProgressBar,
   LineChart,
+  CurlyLineChart,
   Circle,
   BarChart
 }

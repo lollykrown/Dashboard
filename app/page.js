@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
 import { SIDE_LINKS } from '../constants'
-import { ProgressBar, LineChart, Circle, BarChart } from '../components/charts'
+import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart } from '../components/charts'
 
 import Chart from 'chart.js/auto';
 
@@ -35,19 +35,20 @@ export default function Home() {
       </aside>
 
       {/* main content/dashboard */}
-      <section className='basis-4/5 px-3 py-2 grid grid-cols-2 md:grid-cols-3 gap-4'>
+      <div className='basis-4/5 px-3 py-2 grid grid-cols-3 gap-4'>
         <input className='col-span-3 mt-1 w-full p-2' placeholder='search '/>
         
-        <div className=' bg-white flex pt-3'>
+        {/* 1st section */}
+        <div className=' bg-white flex pt-3 col-span-3 md:col-span-1 justify-center space-x-5'>
           <div className=' p-3 '>
             <p className='text-base'>Congratulations Kay 🎉</p>
             <p className='text-xs text-slate-500 '>Best seller of the month</p>
             <p className='text-xl mt-3 py-1 text-btncolor-main'>$48.9k</p>
-            <button className='btn'>view sales</button>
+            <button className='btn mb-2'>view sales</button>
           </div>
-          <Image  src='/thumbs.svg' width={116} height={148} />
+          <Image className=''src='/thumbs.svg' width={116} height={148} />
         </div>
-        <div className='md:col-span-2 px-3 bg-white flex flex-col justify-between py-4'>
+        <div className='col-span-3 md:col-span-2 px-3 bg-white md:flex md:flex-col justify-between py-4'>
           <div className='flex justify-between mt-2'>
             <p className='text-base'>Statistics</p>
             <p className='text-xs text-slate-400 '>Updated 1 month ago</p>
@@ -92,9 +93,8 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
-        <div className=''>
-          <div className='grid grid-cols-2 gap-4'>
+        {/* 2nd section */}
+        <div className='col-span-3 md:col-span-1 grid grid-cols-2 gap-4'>
             <div className=' bg-white px-3 py-2'>
                   <p className='text-base mt-2 text-slate-500'>$82.5k</p>
                   <p className='text-xs text-slate-400 mb-3'>Expenses</p>
@@ -116,7 +116,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className='col-span-2 bg-white px-3 py-2 flex justify-between'>
+            <div className='col-span-3 md:col-span-2 bg-white px-3 py-2 flex justify-between'>
             <div>
               <p className='text-base mt-2 text-slate-500'>Generated Leads</p>
               <p className='text-xs text-slate-400 mb-3'>Monthly report</p>
@@ -127,9 +127,8 @@ export default function Home() {
           </div>
         </div>
 
-        </div>
-        <div className='col-span-2 grid grid-cols-3 gap-1'>
-          <div className='col-span-2 bg-white p-3'>
+        <div className='col-span-3 md:col-span-2 md:grid md:grid-cols-3'>
+          <div className='col-span-3 md:col-span-2 bg-white p-3 mb-2 md:mb-0 border-r-2'>
             <div className='flex justify-between mt-2 '>
               <p className='text-base'>Revenue Report</p>
               <div className='flex space-x-3'>
@@ -139,12 +138,91 @@ export default function Home() {
             </div>
             <BarChart />
           </div>
-          <div className='bg-white p-3'>
-            fghgfgb
+          <div className='col-span-3 md:col-span-1 bg-white p-3 flex flex-col place-items-center justify-center'>
+            <form className='my-2'>
+              <input className='border border-btncolor-main focus:outline-none focus:border-btncolor-main
+              rounded px-1 focus:border-2' type="number" min="2020" max="2024" step="1" placeholder="2022" />
+            </form>
+            <p className='text-xl mt-3 py-1 '>$25,825</p>
+            <p className='text-xs text-slate-400 '>Budget: $56,800</p>
+            <CurlyLineChart color={'#7367f0'}/>
+            <CurlyLineChart color={'#DBDADE'}/>
+            <button className='btn text-sm mt-2'>Increase budget</button>
           </div>
         </div>
+        {/* 3rd section */}
+        <div className=' bg-white py-3 px-3 col-span-3 md:col-span-1'>
+          <div className=' bg-white flex justify-between'>
+            <p className='text-base mt-2 text-slate-500'>Earning Reports</p>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+          </div>
+          <p className='text-xs text-slate-400 mx-0 mb-3'>Weekly Earnings Overview</p>
+          <div className='flex justify-between mb-1'>
+            <div className='flex mt-2'>
+              <svg className="w-7 h-7 self-center bg-btncolor-300 p-1.5  stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <div className='ml-2 '>
+                <p className='text-xs  text-slate-600'>Net Profit</p>
+                <p className='text-[11px] text-slate-400 mx-0'>12.4k Sales</p>
+              </div>
+            </div>
+            <div className='flex self-center'>
+              <p className=' text-xs mt-2 text-slate-500 mr-4'>$1,619</p>
+              <svg className="w-4 h-4 self-end text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+              </svg>
+              <p className='ml-1 self-end text-[11px] text-slate-400 mx-0'>18.6%</p>
+            </div>
+          
 
-      </section>
+          </div>
+          <div className='flex justify-between mb-1'>
+            <div className='flex mt-2'>
+              <svg className="w-7 h-7 self-center bg-cyan-200 p-1.5  stroke-cyan-500"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <div className='ml-2 '>
+                <p className='text-xs  text-slate-600'>Total Income</p>
+                <p className='text-[11px] text-slate-400 mx-0'>Sales, Affiliation</p>
+              </div>
+            </div>
+            <div className='flex self-center'>
+              <p className=' text-xs mt-2 text-slate-500 mr-4'>$3,571</p>
+              <svg className="w-4 h-4 self-end text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+              </svg>
+              <p className='ml-1 self-end text-[11px] text-slate-400 mx-0'>39.6%</p>
+            </div>
+          </div>
+          <div className='flex justify-between mb-1'>
+            <div className='flex mt-2'>
+              <svg className="w-7 h-7 self-center bg-stone-200 p-1.5  stroke-stone-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
+              </svg>
+              <div className='ml-2 '>
+                <p className='text-xs  text-slate-600'>Total Expenses</p>
+                <p className='text-[11px] text-slate-400 mx-0'>ADVT, Marketing</p>
+              </div>
+            </div>
+            <div className='flex self-center'>
+              <p className=' text-xs mt-2 text-slate-500 mr-4'>$430</p>
+              <svg className="w-4 h-4 self-end text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+              </svg>
+              <p className='ml-1 self-end text-[11px] text-slate-400 mx-0'>52.8%</p>
+            </div>
+          
+
+          </div>
+        </div>
+        <div className=' bg-white pt-3 col-span-3 md:col-span-1 space-x-5'>
+            kjhgfdghjkgfhfgjhfgf
+        </div>
+        <div className=' bg-white pt-3 col-span-3 md:col-span-1 space-x-5'>
+            kjhgfdghjkgfhfgjhfgf
+        </div>
+      </div>
     </main>
   );
 }
