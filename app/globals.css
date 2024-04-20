@@ -20,7 +20,6 @@ body {
   scrollbar-width: none; /* Firefox */
 }
 
-
 @layer components {
   .sidelinks {
     @apply items-center hover:bg-gray-100 hover:scale-105 hover:text-btncolor-main flex justify-between rounded cursor-pointer my-2 p-2

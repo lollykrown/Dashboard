@@ -1,47 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
-import { SIDE_LINKS } from '../constants'
-import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } from '../components/charts'
+import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } from '../utils/charts'
 
 import products from '../utils/products'
+import Sidebar from '@/components/Sidebar';
 
 
 export default function Home() {
-  console.log(products[0])
-
 
   return (
     <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
-      <aside className='hidden lg:block basis-1/5 bg-white '>
-        <header className='flex items-center space-x-2 p-2 m-2'>
-          <Image className='' src='/lollykrown.svg' width={40} height={40} alt='Logo'/>
-          <h1 className='font-bold text-lg md:text-xl'>Lollykrown</h1>
-        </header>
-        <section className='px-3 py-2'>
-          <ul className='text-slate-600'>
-            {
-              SIDE_LINKS.map((link)=> (
-                <Link href={`/${link.name ==='dashboard'?'/':link.name}`}  key={link.id}>
-                <li className='sidelinks'>
-                  <div className='flex space-x-2 items-center capitalize'>
-                    {link.icon}&nbsp;
-                    {link.name}
-                  </div>   
-                    {link.arrow}
-                </li>
-                </Link> 
-              ))
-            }
-   
-          </ul>
-
-        </section>
-      </aside>
+      <Sidebar />
 
       {/* main content/dashboard */}
-      <div className='basis-4/5 px-3 py-2 grid grid-cols-3 gap-4'>
+      <div className='basis-4/5 px-3 py-2 grid grid-cols-3 gap-4 pr-6'>
         <input className='col-span-3 mt-1 w-full p-2' placeholder='search '/>
         
         {/* 1st section */}
@@ -233,12 +207,11 @@ export default function Home() {
             <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
           </div>
           <p className='text-xs text-slate-400 mx-0 mb-3'>Total 10.4k Visitors</p>
-
           <div>
-            {products.slice(0,8).map(p=>(
+            {products.slice(0,7).map(p=>(
             <div className='flex justify-between my-4' key={p.id}>
               <div className='flex'>
-                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48} objectFit='contain' />
+                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48} />
                 <div>
                   <p className='text-xs  text-slate-600'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
                   <p className='text-[11px] text-slate-400 mx-0'>Item: {p.category}</p>
