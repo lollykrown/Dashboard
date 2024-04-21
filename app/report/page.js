@@ -5,7 +5,7 @@ import React from 'react'
 import Sidebar from '@/components/Sidebar';
 
 
-export default function Home() {
+export default function Report() {
 
   return (
     <main className="flex flex-row space-x-4">
