@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -5,7 +6,7 @@ import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } f
 
 import products from '../utils/products'
 import Sidebar from '@/components/Sidebar';
-
+import { Tabs, Tab } from '../utils/tabs'
 
 export default function Home() {
 
@@ -223,12 +224,52 @@ export default function Home() {
           </div>
         </div>
 
-        <div className=' bg-white p-3 col-span-3 md:col-span-1'>
-          <div className=' bg-white flex justify-between'>
-            <p className='text-base mt-2 text-slate-500'>Sales by Orders</p>
+        <div className=' bg-white col-span-3 md:col-span-1'>
+          <div className=' bg-white flex justify-between px-3 pt-3'>
+            <p className='text-base mt-2 text-slate-500 '>Sales by Orders</p>
             <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
           </div>
-          <p className='text-xs text-slate-400 mx-0 mb-3'>62 deliveries in progress</p>
+          <p className='text-xs text-slate-400 mx-0 mb-3 px-3'>62 deliveries in progress</p>
+
+          <div>
+            <Tabs>
+              <Tab label="New">
+                <div className='flex'>
+                  <div className="px-4 flex flex-col">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <p className='rotate-90 p-0'>-----------</p>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                    </svg>                    
+                  </div>
+                  <div>
+                    jhgfdsfghgjukilujyhgrtfjyguilku
+                  </div>
+
+                  
+                </div>
+              </Tab>
+              <Tab label="Preparing">
+                <div className="py-4">
+                  <h2 className="text-lg font-medium mb-2">Shipping</h2>
+                  <p className="text-gray-700">
+                    Lorem ipsum dolor sit amet consecte
+                  </p>
+                </div>
+              </Tab>
+              <Tab label="Shipping">
+                <div className="py-4">
+                  <h2 className="text-lg font-medium mb-2">Tab 3 Content</h2>
+                  <p className="text-gray-700">
+                    Lorem ipsum dolor sit amet consectetur
+                  </p>
+                </div>
+              </Tab>
+            </Tabs>
+          </div>
         </div>
       </div>
     </main>
