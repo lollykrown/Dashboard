@@ -138,3 +138,30 @@ export const data = {
       hoverOffset: 4
     }]
   };
+
+export const TAB_DATA = [
+    {
+        sender: {
+            title: 'SENDER',
+            name: 'Myrtle Ullrich',
+            address: '101 Boulder, California(CA), 95959'
+        },
+        reciever: {
+            title: 'RECEIVER',
+            name: 'Barry Schowalter',
+            address: '939 Orange, California(CA), 92118'
+        },
+    },
+    {
+        sender: {
+            title: 'SENDER',
+            name: 'Veronica Herman',
+            address: '162  Windsor, California(CA), 95492'
+        },
+        reciever: {
+            title: 'RECEIVER',
+            name: 'Helen Jacobs',
+            address: '487 Sunset, California(CA), 94043'
+        },
+    },
+];

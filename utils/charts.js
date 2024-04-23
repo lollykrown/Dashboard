@@ -252,6 +252,84 @@ const BarChart = () => {
     </div>
   );
 };
+const SBarChart = () => {
+  const data = {
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov"],
+    previousDate: {
+      dataSet: [100, 200, 150,300, 450, 500,150,220,700,600,400]
+    }
+  };
+
+  return (
+    <div className="">
+      <Bar
+        data={{
+          labels: data.labels,
+          responsive: true,
+          offset: true,
+          datasets: [
+            {
+              label: "Earnings",
+              backgroundColor: "#7367f0",
+              barThickness: 8,
+              categoryPercentage: 1,
+              borderRadius:'50',
+              data: data.previousDate.dataSet //From API
+            },
+          ]
+        }}
+        height={220}
+        options={{
+          plugins: {
+            legend: {
+              display: false
+            },
+          },
+          offsetGridLines: true,
+          drawTicks: true,
+          responsive: true,
+          maintainAspectRatio: true,
+          scales: {
+            x:{
+              grid:{display: false}
+            },
+            y:{
+              grid:{display: false}
+            },
+            xAxes: [
+              {
+                stacked: true,
+                ticks: {
+                  padding: 5
+                },
+                gridLines: {
+                  display: false
+                }
+              }
+            ],
+            yAxes: [
+              {
+                stacked: true,
+                gridLines: {
+                  drawBorder: false
+                },
+                ticks: {
+                  beginAtZero: true,
+                  maxTicksLimit: 6,
+                  padding: 20,
+                  // callback(n) {
+                  //   if (n < 1e3) return n;
+                  //   if (n >= 1e3) return +(n / 1e3).toFixed(1) + "K";
+                  // }
+                }
+              }
+            ]
+          }
+        }}
+      />
+    </div>
+  );
+};
 const RBarChart = ({position}) => {
   const data = {
     labels: ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"],
@@ -340,5 +418,6 @@ export {
   CurlyLineChart,
   Circle,
   BarChart,
+  SBarChart,
   RBarChart
 }

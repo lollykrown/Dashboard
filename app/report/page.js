@@ -3,12 +3,13 @@ import Link from 'next/link';
 import React from 'react'
 
 import Sidebar from '@/components/Sidebar';
+import { SBarChart, CurlyLineChart } from '@/utils/charts';
 
 
 export default function Report() {
 
   return (
-    <main className="flex flex-row space-x-4">
+    <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
       <Sidebar />
 
@@ -37,36 +38,46 @@ export default function Report() {
         </div>
         <div className='grid grid-cols-2 gap-4 '>
           {/* 1st section */}
-          <div className='col-span-2 lg:col-span-1 '>
-            <div className='grid grid-cols-2 md:grid-cols-3 gap-2'>
-              <div className='bg-white rounded-xl p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+          <div className='col-span-2 lg:col-span-1 mt-2'>
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-4 '>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-5 text-[12px]'>Active Users</p>
+                <p className='text-sm text-slate-500 font-bold'><span className='text-xl text-black'>27</span>/50</p>
+                <br/>
               </div>
-              <div className='bg-white rounded p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-5 text-[12px]'>Questions Answered</p>
+                <p className='text-xl text-black font-bold'>3,298</p>
+                <br/>
               </div>
-              <div className='bg-white rounded p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-5 text-[12px]'>Av. Session Length</p>
+                <p className='text-xl text-black font-bold'>2m 34s</p>
+                <br/>
               </div>
-              <div className='bg-white rounded-xl p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-4 text-[12px]'>Starting Knowledge</p>
+                <p className='text-xl text-black font-bold'>64%</p>
+                <CurlyLineChart color={'#2563eb'}/>
               </div>
-              <div className='bg-white rounded p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-4 text-[12px]'>Current Knowledge</p>
+                <p className='text-xl text-black font-bold'>86%</p>
+                <CurlyLineChart color={'#2563eb'}/>
               </div>
-              <div className='bg-white rounded p-3'>
-                <p>Active Users</p><br/><br/>
-                <p>27/50</p>
+              <div className='bg-white rounded-xl px-3 pb-3 pt-2'>
+                <p className='mb-4 text-[12px]'>Knowledge Gain</p>
+                <p className='text-xl text-black font-bold'>+34%</p>
+                <CurlyLineChart color={'#2563eb'} />
               </div>
+
             </div>
           </div>
-          <div className='bg-white rounded-xl col-span-2 md:col-span-1'>
-gf
+          <div className='bg-white rounded-xl col-span-2 md:col-span-1 p-4 mt-2'>
+            <div className='border-b-2 border-slate-200 mb-4'>
+              <p className='text-sm pb-1'>Activity</p>
+            </div>
+            <SBarChart />
           </div>
 
           {/* 2nd section */}
