@@ -8,7 +8,7 @@ import products from '../../utils/products'
 
 
 export default function Report() {
-console.log(products[0])
+
   return (
     <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
@@ -141,7 +141,7 @@ console.log(products[0])
 
           {/*3rd section */}
           <div className='bg-white rounded-xl h-80 col-span-2 md:col-span-1'>
-            
+
           </div>
           <div className='bg-white rounded-xl h-80 col-span-2 md:col-span-1'>
           </div>
