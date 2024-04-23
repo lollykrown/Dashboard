@@ -9,9 +9,11 @@ import Sidebar from '@/components/Sidebar';
 import { Tabs, Tab } from '../utils/tabs'
 import { TAB_DATA } from '@/constants';
 import Table from '@/utils/table';
+import { useRouter } from 'next/navigation'
 
 export default function Home() {
-  
+  const router = useRouter();
+
 
   return (
     <main className="block lg:flex lg:flex-row space-x-4">
@@ -28,7 +30,7 @@ export default function Home() {
             <p className='text-base'>Congratulations Kay 🎉</p>
             <p className='text-xs text-slate-500 '>Best seller of the month</p>
             <p className='text-xl mt-3 py-1 text-btncolor-main'>$48.9k</p>
-            <button className='btn mb-2'>view sales</button>
+            <button className='btn mb-2' onClick={() => router.push('/sales')}>view sales</button>
           </div>
           <Image className=''src='/thumbs.svg' width={116} height={148} />
         </div>
@@ -135,7 +137,7 @@ export default function Home() {
             <p className='text-xs text-slate-400 '>Budget: $56,800</p>
             <CurlyLineChart color={'#7367f0'}/>
             <CurlyLineChart color={'#DBDADE'}/>
-            <button className='btn text-sm mt-2'>Increase budget</button>
+            <button className='btn text-sm mt-2' onClick={() => router.push('/report')}>Increase budget</button>
           </div>
         </div>
         {/* 3rd section */}
@@ -359,7 +361,7 @@ export default function Home() {
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="-10 h-10 self-center  bg-emerald-200 p-3 rounded-md stroke-emerald-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-emerald-200 p-3 rounded-md stroke-emerald-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
               </svg>
               <div className='mx-2'>

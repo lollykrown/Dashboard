@@ -19,8 +19,56 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+/* @-webkit-keyframes animate-stripes {
+  100% { background-position: -100px 0px; }
+}
 
+@keyframes animate-stripes {
+  100% { background-position: -100px 0px; }
+} */
+/* progress[value]::-webkit-progress-bar {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+  background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top, 
+	                           rgba(255, 255, 255, .25), 
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
+    background-size: 35px 20px, 100% 100%, 100% 100%;
 
+-webkit-animation: animate-stripes 5s linear infinite;
+        animation: animate-stripes 5s linear infinite;
+
+}  */
+
+progress {
+  border-radius: 24px; 
+  width: 90%;
+  height: 12px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+progress::-webkit-progress-bar {
+  background-image: linear-gradient(to right, #fed7aa , #fecaca);
+  border-radius: 24px;
+}
+progress::-webkit-progress-value {
+  background-image: linear-gradient(to right, #fb923c , #ef4444);
+  border-radius: 24px;
+}
+progress::-moz-progress-bar {
+  background-color: #fecaca;
+  border-radius: 24px;
+}
+
+.gr-pro::-webkit-progress-bar {
+  background-image: linear-gradient(to right, #a7f3d0 , #bbf7d0);
+}
+.gr-pro::-webkit-progress-value {
+  background-image: linear-gradient(to right, #34d399 , #4ade80);
+}
 
 @layer components {
   .sidelinks {
