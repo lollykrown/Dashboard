@@ -380,7 +380,7 @@ const nodes = [
                     // value={search} onChange={handleSearch} 
                     />
                 </label>
-                <label HtmlFor="cars" className="hidden md:block">
+                <label htmlFor="cars" className="hidden md:block">
                     <select className="px-2 py-[10px] border border-slate-300 focus:outline-none focus:border-btncolor-main" name="cars" id="cars">
                         <option value="volvo">Volvo</option>
                         <option value="saab">Saab</option>

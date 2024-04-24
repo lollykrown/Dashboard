@@ -227,34 +227,6 @@ const BarChart = () => {
             y:{
               grid:{display: false}
             },
-            xAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  padding: 5
-                },
-                gridLines: {
-                  display: false
-                }
-              }
-            ],
-            yAxes: [
-              {
-                stacked: true,
-                gridLines: {
-                  drawBorder: false
-                },
-                ticks: {
-                  beginAtZero: true,
-                  maxTicksLimit: 6,
-                  padding: 20,
-                  // callback(n) {
-                  //   if (n < 1e3) return n;
-                  //   if (n >= 1e3) return +(n / 1e3).toFixed(1) + "K";
-                  // }
-                }
-              }
-            ]
           }
         }}
       />
@@ -372,34 +344,6 @@ const RBarChart = ({position}) => {
           scales: {
             x:{grid:{display: false}},
             y:{display: false},
-            xAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  padding: 5
-                },
-                gridLines: {
-                  display: false
-                }
-              }
-            ],
-            yAxes: [
-              {
-                stacked: true,
-                gridLines: {
-                  drawBorder: false
-                },
-                ticks: {
-                  beginAtZero: true,
-                  maxTicksLimit: 6,
-                  padding: 20,
-                  // callback(n) {
-                  //   if (n < 1e3) return n;
-                  //   if (n >= 1e3) return +(n / 1e3).toFixed(1) + "K";
-                  // }
-                }
-              }
-            ]
           }
         }}
       />

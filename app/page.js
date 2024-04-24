@@ -31,7 +31,7 @@ export default function Home() {
             <p className='text-xl mt-3 py-1 text-btncolor-main'>$48.9k</p>
             <button className='btn mb-2' onClick={() => router.push('/sales')}>view sales</button>
           </div>
-          <Image src='/thumbs.svg' width={116} height={148} className='pe-3'/>
+          <Image src='/thumbs.svg' width={116} height={148} className='pe-3' alt='person image'/>
         </div> 
         <div className='col-span-3 md:col-span-2 px-3 bg-white md:flex md:flex-col justify-between py-4'>
           <div className='flex justify-between mt-2'>
@@ -143,7 +143,7 @@ export default function Home() {
         <div className=' bg-white p-3 col-span-3 md:col-span-1'>
           <div className=' bg-white flex justify-between'>
             <p className='text-base mt-2 text-slate-500'>Earning Reports</p>
-            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18} alt='overflow icon'/>
           </div>
           <p className='text-xs text-slate-400 mx-0 mb-3'>Weekly Earnings Overview</p>
           <div className='flex justify-between mb-1'>
@@ -209,14 +209,14 @@ export default function Home() {
         <div className=' bg-white p-3 col-span-3 md:col-span-1'>
           <div className=' bg-white flex justify-between'>
             <p className='text-base mt-2 text-slate-500'>Popular Products</p>
-            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18} alt='overflow icon'/>
           </div>
           <p className='text-xs text-slate-400 mx-0 mb-3'>Total 10.4k Visitors</p>
           <div>
             {products.slice(0,7).map(p=>(
             <div className='flex justify-between my-4' key={p.id}>
               <div className='flex'>
-                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48} />
+                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48}  alt='product' />
                 <div>
                   <p className='text-xs  text-slate-600'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
                   <p className='text-[11px] text-slate-400 mx-0'>Item: {p.category}</p>
@@ -230,7 +230,7 @@ export default function Home() {
         <div className=' bg-white col-span-3 md:col-span-1'>
           <div className=' bg-white flex justify-between px-3 pt-3'>
             <p className='text-base mt-2 text-slate-500 '>Sales by Orders</p>
-            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18} alt='overflow icon'/>
           </div>
           <p className='text-xs text-slate-400 mx-0 mb-3 px-3'>62 deliveries in progress</p>
 
@@ -343,7 +343,7 @@ export default function Home() {
         <div className=' bg-white p-3 col-span-3 md:col-span-1 mb-4'>
           <div className=' bg-white flex justify-between'>
             <p className='text-base mt-2 text-slate-500'>Transactions </p>
-            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18}/>
+            <Image className='self-end mb-1' src='/overflow.svg' width={18} height={18} alt='overflow icon'/>
           </div>
           <p className='text-xs text-slate-400 mx-0 mb-3'>Total 58 transaction done in month</p>
           <div className='flex justify-between mb-3'>
