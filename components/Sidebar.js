@@ -1,10 +1,11 @@
+'use client'
 import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { SIDE_LINKS, DESIGNS } from '../constants'
 
 
-const Sidebar = () => {
+const Sidebar = ({route}) => {
   return (
     <aside className='hidden lg:block basis-1/5 bg-white '>
         <header className='flex items-center space-x-2 p-2 m-2'>
@@ -17,7 +18,7 @@ const Sidebar = () => {
             {
               DESIGNS.map((link)=> (
                 <Link href={`/${link.name ==='e-commerce'?'/':link.name}`}  key={link.id}>
-                <li className='sidelinks'>
+                <li className={`sidelinks`}>
                   <div className='flex space-x-2 items-center capitalize'>
                     {link.icon}&nbsp;
                     {link.name}

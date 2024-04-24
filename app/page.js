@@ -8,32 +8,31 @@ import products from '../utils/products'
 import Sidebar from '@/components/Sidebar';
 import { Tabs, Tab } from '../utils/tabs'
 import { TAB_DATA } from '@/constants';
-import Table from '@/utils/table';
+import {TableT} from '@/utils/table';
 import { useRouter } from 'next/navigation'
 
 export default function Home() {
   const router = useRouter();
 
-
   return (
     <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
-      <Sidebar />
+      <Sidebar route={router} />
 
       {/* main content/dashboard */}
       <div className='basis-4/5 px-3 py-2 grid grid-cols-3 gap-4 pr-6'>
         <input className='col-span-3 mt-1 w-full p-2' placeholder='search '/>
         
         {/* 1st section */}
-        <div className=' bg-white flex pt-3 col-span-3 md:col-span-1 justify-center space-x-5'>
-          <div className=' p-3 '>
+        <div className=' bg-white flex pt-3 col-span-3 md:col-span-1 justify-center md:justify-around space-x-5'>
+          <div className='p-3 md:ps-2 md:pe-0 lg:p-3'>
             <p className='text-base'>Congratulations Kay 🎉</p>
             <p className='text-xs text-slate-500 '>Best seller of the month</p>
             <p className='text-xl mt-3 py-1 text-btncolor-main'>$48.9k</p>
             <button className='btn mb-2' onClick={() => router.push('/sales')}>view sales</button>
           </div>
-          <Image className=''src='/thumbs.svg' width={116} height={148} />
-        </div>
+          <Image src='/thumbs.svg' width={116} height={148} className='pe-3'/>
+        </div> 
         <div className='col-span-3 md:col-span-2 px-3 bg-white md:flex md:flex-col justify-between py-4'>
           <div className='flex justify-between mt-2'>
             <p className='text-base'>Statistics</p>
@@ -349,91 +348,91 @@ export default function Home() {
           <p className='text-xs text-slate-400 mx-0 mb-3'>Total 58 transaction done in month</p>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg className="w-10 h-10 self-center  bg-btncolor-300 p-3 rounded-md stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <svg className="w-8 h-8 self-center  bg-btncolor-300 p-2 rounded-md stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Wallet</p>
-                <p className='text-slate-400 text-[13px]'>Starbucks</p>
+                <p className='text-xs'>Wallet</p>
+                <p className='text-slate-400 text-xs'>Starbucks</p>
               </div>
             </div>
             <p className='self-center text-red-700'>-$75</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-emerald-200 p-3 rounded-md stroke-emerald-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 self-center  bg-emerald-200 p-2 rounded-md stroke-emerald-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Cash Deposit</p>
-                <p className='text-slate-400 text-[13px]'>Paga</p>
+                <p className='text-xs'>Cash Deposit</p>
+                <p className='text-slate-400 text-xs'>Paga</p>
               </div>
             </div>
             <p className='self-center text-emerald-500'>+$975</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-stone-200 p-3 rounded-md stroke-stone-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 self-center  bg-stone-200 p-2 rounded-md stroke-stone-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Master Card</p>
-                <p className='text-slate-400 text-[13px]'>Ordered iPhone 13</p>
+                <p className='text-xs'>Master Card</p>
+                <p className='text-slate-400 text-xs'>Ordered iPhone 13</p>
               </div>
             </div>
             <p className='self-center text-red-700'>-$699</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-cyan-200 p-3 rounded-md stroke-cyan-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 self-center  bg-cyan-200 p-2 rounded-md stroke-cyan-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Bank Transaction</p>
-                <p className='text-slate-400 text-[13px]'>Refund</p>
+                <p className='text-xs'>Bank Transaction</p>
+                <p className='text-slate-400 text-xs'>Refund</p>
               </div>
             </div>
             <p className='self-center text-emerald-500'>+$175</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg className="w-10 h-10 self-center  bg-btncolor-300 p-3 rounded-md stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+              <svg className="w-8 h-8 self-center  bg-btncolor-300 p-2 rounded-md stroke-btncolor-800" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9m18 0V6a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 6v3" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Wallet</p>
-                <p className='text-slate-400 text-[13px]'>Starbucks</p>
+                <p className='text-xs'>Wallet</p>
+                <p className='text-slate-400 text-xs'>Starbucks</p>
               </div>
             </div>
             <p className='self-center text-red-700'>-$75</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-stone-200 p-3 rounded-md stroke-stone-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 self-center  bg-stone-200 p-2 rounded-md stroke-stone-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 0 0 2.25-2.25V6.75A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25v10.5A2.25 2.25 0 0 0 4.5 19.5Z" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Master Card</p>
-                <p className='text-slate-400 text-[13px]'>Ordered iPhone 13</p>
+                <p className='text-xs'>Master Card</p>
+                <p className='text-slate-400 text-xs'>Ordered iPhone 13</p>
               </div>
             </div>
             <p className='self-center text-red-700'>-$699</p>
           </div>
           <div className='flex justify-between mb-3'>
             <div className='flex'>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10 self-center  bg-cyan-200 p-3 rounded-md stroke-cyan-800">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8 self-center  bg-cyan-200 p-2 rounded-md stroke-cyan-800">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
               </svg>
               <div className='mx-2'>
-                <p className='text-[13px]'>Bank Transaction</p>
-                <p className='text-slate-400 text-[13px]'>Refund</p>
+                <p className='text-xs'>Bank Transaction</p>
+                <p className='text-slate-400 text-xs'>Refund</p>
               </div>
             </div>
             <p className='self-center text-emerald-500'>+$175</p>
           </div>
         </div>   
         <div className=' bg-white p-3 col-span-3 md:col-span-2 mb-4'>
-          <Table />
+          <TableT />
         </div>     
       </div>
     </main>

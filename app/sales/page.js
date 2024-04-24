@@ -8,7 +8,7 @@ import Sidebar from '@/components/Sidebar';
 export default function Sales() {
 
   return (
-    <main className="flex flex-row space-x-4">
+    <main className="block lg:flex lg:flex-row space-x-4">
       {/* left navigation */}
       <Sidebar />
 
@@ -19,7 +19,8 @@ export default function Sales() {
           {/* 1st section */}
           <div className='bg-white col-span-4 h-60'>
           <div className='grid grid-cols-4 gap-2 content-end'>
-              <div className='h-20 bg-orange-300'></div>
+              <div className='h-20 bg-orange-400'>
+              </div>
               <div className='h-20 bg-orange-300'></div>
               <div className='h-20 bg-orange-300'></div>
               <div className='h-20 bg-orange-300'></div>

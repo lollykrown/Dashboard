@@ -3,8 +3,7 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, PointElement, Title,
   LineElement, CategoryScale, LinearScale, BarElement, LineController,
   BarController, } from 'chart.js';
-import { Doughnut, Line, Bar } from 'react-chartjs-2';
-
+import { Doughnut, Line, Bar, Pie } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, ArcElement, Tooltip, Legend, LinearScale, 
   PointElement, LineElement, Title, BarController, LineController, BarElement);
 
@@ -89,15 +88,15 @@ const LineChart = () => {
 };
 const CurlyLineChart = ({color}) => {
   const options = {
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: 'linear',
-        from: 1,
-        to: 0,
-        loop: true
-      }
-    },
+    // animations: {
+    //   tension: {
+    //     duration: 1000,
+    //     easing: 'linear',
+    //     from: 1,
+    //     to: 0,
+    //     loop: true
+    //   }
+    // },
     scales:{
       x:{display: false},
       y:{display: false}
@@ -222,7 +221,8 @@ const BarChart = () => {
           maintainAspectRatio: true,
           scales: {
             x:{
-              grid:{display: false}
+              grid:{display: false},
+              stacked: true,
             },
             y:{
               grid:{display: false}
@@ -265,7 +265,10 @@ const SBarChart = () => {
   const data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug","Sep","Oct","Nov"],
     previousDate: {
-      dataSet: [100, 200, 150,300, 450, 500,150,220,700,600,400]
+      dataSet: [100, 200, 150,300, 450, 200,150,220,400,600,400]
+    },
+    currentDate: {
+      dataSet: [200,300, 400, 500,550,600,700,500,600,750,650]
     }
   };
 
@@ -275,16 +278,24 @@ const SBarChart = () => {
         data={{
           labels: data.labels,
           responsive: true,
-          offset: true,
+          // offset: true,
           datasets: [
             {
               label: "Earnings",
-              backgroundColor: "#7367f0",
+              backgroundColor: "#2563eb",
               barThickness: 8,
               categoryPercentage: 1,
               borderRadius:'50',
               data: data.previousDate.dataSet //From API
             },
+            {
+              label: "Expenses",
+              backgroundColor: "#bfdbfe",
+              barThickness: 8,
+              categoryPercentage: 1,
+              borderRadius:'50',
+              data: data.currentDate.dataSet //From API
+            }
           ]
         }}
         height={220}
@@ -300,39 +311,13 @@ const SBarChart = () => {
           maintainAspectRatio: true,
           scales: {
             x:{
-              grid:{display: false}
+              grid:{display: false},
+              stacked: true,
             },
             y:{
-              grid:{display: false}
+              grid:{display: false},
+              stacked: true,
             },
-            xAxes: [
-              {
-                stacked: true,
-                ticks: {
-                  padding: 5
-                },
-                gridLines: {
-                  display: false
-                }
-              }
-            ],
-            yAxes: [
-              {
-                stacked: true,
-                gridLines: {
-                  drawBorder: false
-                },
-                ticks: {
-                  beginAtZero: true,
-                  maxTicksLimit: 6,
-                  padding: 20,
-                  // callback(n) {
-                  //   if (n < 1e3) return n;
-                  //   if (n >= 1e3) return +(n / 1e3).toFixed(1) + "K";
-                  // }
-                }
-              }
-            ]
           }
         }}
       />
@@ -421,6 +406,99 @@ const RBarChart = ({position}) => {
     </div>
   );
 };
+
+const Lines = () => {
+  const labels = ['SEP', 'OCT', 'NOV', 'DEC', 'JAN', 'FEB', 'MAR'];
+  const data = {
+    labels,
+    datasets: [
+      {
+        // label: 'Dataset 1',
+        data: [-1000, -700, 600, 300, 500, -200, -400],
+        borderColor: 'rgb(106, 210, 255)',
+        backgroundColor: 'rgba(106, 210, 255,0.5)',
+        tension: 0.3
+      },
+      {
+        label: 'Dataset 2',
+        data: [-800, -100, 100, -900, 1000, -200, 400],
+        borderColor: 'rgb(67, 24, 255)',
+        backgroundColor: 'rgba(67, 24, 255, 0.5)',
+        tension: 0.3
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    scales:{
+      x:{
+        grid:{
+          display:false,
+        }
+      },
+      y:{display: false},
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      // title: {
+      //   display: true,
+      //   text: 'Chart.js Line Chart',
+      // },
+    },
+  };
+  return <Line options={options} data={data} />;
+}
+const PieChart = () => {
+  const data = {
+    labels: ['System', 'Your Files', 'Others'],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: [25, 60, 15],
+        backgroundColor: [
+          'rgb(106, 210, 255)',
+          'rgb(67, 24, 255)',          
+          'rgb(239, 244, 251)',
+        ],
+        borderColor: [
+          'rgba(106, 210, 255,0.1)',
+          'rgba(67, 24, 255, 0.1)',
+          'rgba(239, 244, 251,0.1)',          
+        ],
+        borderWidth: 0,
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          // pointStyle: 'circle'
+          useBorderRadius:true,
+          borderRadius:50,
+          boxWidth: 10
+        }
+      },
+      title: {
+        display: true,
+        text: 'Your Pie Chart',
+        align: 'start',
+        font: {
+          size: 18
+      }
+      },
+      tooltip: {
+        enabled: false
+      }
+    },
+  };
+  return <Pie data={data} options={options} />;
+
+}
 export {
   ProgressBar,
   LineChart,
@@ -428,5 +506,7 @@ export {
   Circle,
   BarChart,
   SBarChart,
-  RBarChart
+  RBarChart,
+  Lines,
+  PieChart
 }
