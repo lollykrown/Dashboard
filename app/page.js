@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </div>
         {/* 2nd section */}
-        <div className='col-span-3 md:col-span-1 grid grid-cols-2 lg:gap-4'>
+        <div className='col-span-3 md:col-span-1 grid grid-cols-2 lg:gap-4 '>
             <div className=' bg-white px-3 py-2 mb-4 lg:mb-0' >
                   <p className='text-base mt-2 text-slate-500'>$82.5k</p>
                   <p className='text-xs text-slate-400 mb-3'>Expenses</p>
@@ -89,11 +89,11 @@ export default function Home() {
                       $21k Expenses more than last month</p>
                   </div>
             </div>
-            <div className=' bg-white px-3 py-2 ml-4 lg:ml-0 mb-4 lg:mb-0'>
+            <div className=' bg-white px-3 py-2 ml-4 lg:ml-0 mb-4 lg:mb-0 '>
                 <p className='text-base mt-2 text-slate-500'>Profit</p>
                 <p className='text-xs text-slate-400 mb-3'>Last Month</p>
                 <div className=''>
-                  <div className='h-16 w-28'><LineChart /></div>
+                  <div className=''><LineChart /></div>
                   <div className='flex justify-between'>
                     <p className='text-xl'>624k</p>
                     <p className='text-xs text-green-main self-center'>+8.24%</p>

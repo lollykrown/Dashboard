@@ -24,7 +24,7 @@ const ProgressBar = ({percent}) => {
   };
 
   return (
-    <div className='relative h-16 w-28'>
+    <div className='relative h-16 w-28 mx-auto'>
       <Doughnut
         data={data}
         options={{
