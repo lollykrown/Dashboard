@@ -413,14 +413,14 @@ const Lines = () => {
     labels,
     datasets: [
       {
-        // label: 'Dataset 1',
+        label: 'Income',
         data: [-1000, -700, 600, 300, 500, -200, -400],
         borderColor: 'rgb(106, 210, 255)',
         backgroundColor: 'rgba(106, 210, 255,0.5)',
         tension: 0.3
       },
       {
-        label: 'Dataset 2',
+        label: 'Expenses',
         data: [-800, -100, 100, -900, 1000, -200, 400],
         borderColor: 'rgb(67, 24, 255)',
         backgroundColor: 'rgba(67, 24, 255, 0.5)',

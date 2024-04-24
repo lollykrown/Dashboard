@@ -78,20 +78,22 @@ export default function Admin() {
 
             </div>
           {/* 2nd section */}
-          <div className='grid grid-cols-2 gap-4 my-2'>
-                <div className='bg-white rounded-md col-span-2 lg:col-span-1 grid grid-cols-4 p-3'>
+          <div className='grid grid-cols-2 gap-4 my-2'>                
+                <div className='bg-white rounded-md col-span-2 lg:col-span-1 p-3'>
+                {/* <div className='bg-white rounded-md col-span-2 lg:col-span-1 grid grid-cols-4 p-3'>
                   <div className='col-span-1'>
                     <p className='bg-slate-200 text-slate-500 px-2 py-1 text-xs w-max mb-4'>This month</p>
                     <p className='font-bold text-2xl'>$37.5</p>
                     <p className=' text-xs'>Total spent</p>
                     <p className='text-green-600 text-xs mt-3'>On Track</p>
+                  </div> */}
+                  {/* <div className='col-span-3 px-3 pb-3 pt-5'> */}
+                  <p className='py-3 text-md mb-3'>Total spent</p>
 
-                  </div>
-                  <div className='col-span-3 px-3 pb-3 pt-5'>
                     <Lines />
-                  </div>
+                  {/* </div> */}
                 </div>
-                <div className='bg-white rounded-md col-span-2 lg:col-span-1'>
+                <div className='bg-white rounded-md col-span-2 lg:col-span-1 px-4 py-2'>
                   <SBarChart />
                 </div>
             </div>     

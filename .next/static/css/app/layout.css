@@ -1429,6 +1429,12 @@ progress::-moz-progress-bar {
 }
 
 
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+
 .pb-1{
   padding-bottom: 0.25rem;
 }
