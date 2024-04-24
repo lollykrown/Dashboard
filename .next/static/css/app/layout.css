@@ -878,6 +878,16 @@ progress::-moz-progress-bar {
 }
 
 
+.max-h-14{
+  max-height: 3.5rem;
+}
+
+
+.max-h-1{
+  max-height: 0.25rem;
+}
+
+
 .min-h-10{
   min-height: 2.5rem;
 }
@@ -940,6 +950,11 @@ progress::-moz-progress-bar {
 
 .w-max{
   width: max-content;
+}
+
+
+.max-w-14{
+  max-width: 3.5rem;
 }
 
 
