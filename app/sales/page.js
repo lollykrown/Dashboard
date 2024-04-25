@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react'
 
 import Sidebar from '@/components/Sidebar';
+import { GoogleLineChart, GoogleTable, MapChart } from '@/utils/charts';
 
 
 export default function Sales() {
@@ -17,8 +18,8 @@ export default function Sales() {
   
         <div className='grid grid-cols-7 gap-4 '>
           {/* 1st section */}
-          <div className='bg-white col-span-4 h-60'>
-          <div className='grid grid-cols-4 gap-2 content-end'>
+          <div className='bg-white col-span-7 md:col-span-4'>
+          <div className='grid grid-cols-4 gap-2'>
               <div className='h-20 bg-orange-400'>
               </div>
               <div className='h-20 bg-orange-300'></div>
@@ -26,29 +27,32 @@ export default function Sales() {
               <div className='h-20 bg-orange-300'></div>
             </div>
           </div>
-          <div className='bg-white rounded-xl col-span-3  h-60'>
-            gf
+          <div className='bg-white col-span-7 rounded-xl md:col-span-3 py-3'>
+            <p className='font-bold ps-5'>Visitor Insights</p>
+            <GoogleLineChart/>
           </div>
 
 
           {/* 2nd section */}
-          <div className='bg-white col-span-3 h-60'>
+          <div className='bg-white col-span-7 md:col-span-3 h-60'>
 
           </div>
-          <div className='bg-white rounded-xl col-span-2  h-60'>
+          <div className='bg-white rounded-xl col-span-7 md:col-span-2  h-60'>
             gf
           </div>
-          <div className='bg-white rounded-xl col-span-2  h-60'>
+          <div className='bg-white rounded-xl col-span-7 md:col-span-2  h-60'>
             gf
           </div>
           {/*3rd section */}
-          <div className='bg-white col-span-3 h-60'>
-
+          <div className='bg-white col-span-7 md:col-span-3 p-3'>
+            <p className='font-bold mb-4'>Top Products</p>
+            <GoogleTable/>
           </div>
-          <div className='bg-white rounded-xl col-span-2  h-60'>
-            gf
+          <div className='bg-white rounded-xl col-span-7 md:col-span-2 p-3'>
+            <p className='font-bold mb-4'>Sales Mapping by Country</p>
+            <MapChart />
           </div>
-          <div className='bg-white rounded-xl col-span-2  h-60 mb-2'>
+          <div className='bg-white rounded-xl col-span-7 md:col-span-2 '>
             gf
           </div>
         </div>

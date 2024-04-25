@@ -7,6 +7,10 @@ import { Doughnut, Line, Bar, Pie } from 'react-chartjs-2';
 ChartJS.register(CategoryScale, ArcElement, Tooltip, Legend, LinearScale, 
   PointElement, LineElement, Title, BarController, LineController, BarElement);
 
+
+import { Chart as GoogleChart} from "react-google-charts";
+
+
 const ProgressBar = ({percent}) => {
   const p = 100-percent
   const data = {
@@ -443,6 +447,135 @@ const PieChart = () => {
   return <Pie data={data} options={options} />;
 
 }
+const MapChart = () => {
+ const data = [
+    ["Country", "Popularity"],
+    ["Germany", 200],
+    // ["United States", 300],
+    ["Brazil", 400],
+    ["Canada", 500],
+    ["France", 600],
+    ["RU", 700],
+    ["Nigeria", 400],
+    ["Libya", 500],
+    ["South Africa", 600],
+    ["Kenya", 700],
+  ];
+
+  const options = {
+    // region: "002", // Africa
+    colorAxis: { colors: ["#FFA800", "#F64E60", "#6993FF", "#00AB9A","#8950FC" ] },
+    // backgroundColor: "#81d4fa",
+    datalessRegionColor: "#ECECEC",
+    defaultColor: "#f5f5f5",
+  };
+
+  return (
+    <GoogleChart
+      chartEvents={[
+        {
+          eventName: "select",
+          callback: ({ chartWrapper }) => {
+            const chart = chartWrapper.getChart();
+            const selection = chart.getSelection();
+            if (selection.length === 0) return;
+            const region = data[selection[0].row + 1];
+            console.log("Selected : " + region);
+          },
+        },
+      ]}
+      chartType="GeoChart"
+      width="100%"
+      // height="400px"
+      data={data}
+      options={options}
+    />
+  );
+}
+const GoogleTable = () => {
+ const data = [
+    ["Country", "Popularity", 'sales'],
+    ["Home Decor Range", 500, 500],
+    ["Disney Princess Pink Bag 18", 900, 900],
+    ["Bathroom Essentials", 200, 200],
+    ["Living Room Electronics", 400, 400],
+    ["Apple Smartwatches", 300, 300],
+  ];
+
+  const cssClassNames = {
+    'headerRow': '',
+    'tableRow': 'text-xs text-slate-600',
+    'oddTableRow': 'text-xs text-slate-600',
+    'selectedTableRow': '',
+    'hoverTableRow': '',
+    'headerCell': '',
+    'tableCell': '',
+    'rowNumberCell': ''
+  };
+
+    const options = {
+      allowHtml: true,
+      showRowNumber: true,
+      'cssClassNames': cssClassNames
+      };
+
+  const formatters = [
+    {
+      type: "BarFormat" ,
+      column: 1,
+      options: {
+        max:1000,
+        min:100, 
+        showValue:false,     
+      },
+    },
+  ];
+
+  return (
+    <GoogleChart
+        chartType="Table"
+        width="100%"
+        // height="400px"
+        data={data}
+        options={options}
+        formatters={formatters}
+    />
+  );
+}
+const GoogleLineChart = () => {
+  const data = [
+    ["Year", "Loyal Customers", "New Customers", "Unique Customers"],
+    ["Jan", 1000, 400, 600],
+    ["Feb", 1170, 460, 900],
+    ["Mar", 660, 1120, 300],
+    ["Apr", 1030, 540, 700],
+    ["May", 170, 660, 200],
+    ["Jun", 260, 920, 500],
+  //   ["Jul", 1030, 540, 700],
+  //   ["Aug", 1170, 460, 900],
+  //   ["Sep", 660, 1120, 300],
+  ];
+
+  const options = {
+    titlePosition:'none',
+    curveType: "function",
+    legend: { position: "bottom" },
+    colors: ["#3CD856", "#A700FF", "#EF4444" ],
+    // chartArea:{
+    //   backgroundColor: "#A700FF"
+    //   }
+
+  };
+  return (
+    <GoogleChart
+      chartType="LineChart"
+      width="100%"
+      // height="400px"
+      data={data}
+      options={options}
+    />
+  );
+}
 export {
   ProgressBar,
   LineChart,
@@ -452,5 +585,10 @@ export {
   SBarChart,
   RBarChart,
   Lines,
-  PieChart
+  PieChart,
+  MapChart,
+  GoogleLineChart,
+  GoogleTable
 }
+
+
