@@ -3,10 +3,13 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 import { SIDE_LINKS, DESIGNS } from '../constants'
+import { redirect, usePathname } from 'next/navigation'
+import { useRouter } from 'next/router';
 
+const Sidebar = () => {
+  const path = usePathname();
 
-const Sidebar = ({route}) => {
-  return (
+    return (
     <aside className='hidden lg:block basis-1/5 bg-white '>
         <header className='flex items-center space-x-2 p-2 m-2'>
           <Image className='' src='/lollykrown.svg' width={40} height={40} alt='Logo'/>
@@ -17,8 +20,10 @@ const Sidebar = ({route}) => {
           <ul className='text-slate-600'>
             {
               DESIGNS.map((link)=> (
-                <Link href={`/${link.name ==='e-commerce'?'/':link.name}`}  key={link.id}>
-                <li className={`sidelinks`}>
+                <Link href={`/${link.name}`} key={link.id}>
+                <li className={`${link.name ==='e-commerce'&&path==='/' ?'p-2 bg-btncolor-300 scale-105 text-btncolor-main flex justify-between rounded cursor-pointer':
+                path.includes(link.name)?'p-2 bg-btncolor-300 scale-105 text-btncolor-main flex justify-between rounded cursor-pointer':
+                'sidelinks'}`}>
                   <div className='flex space-x-2 items-center capitalize'>
                     {link.icon}&nbsp;
                     {link.name}
@@ -36,7 +41,7 @@ const Sidebar = ({route}) => {
           <ul className='text-slate-600'>
             {
               SIDE_LINKS.map((link)=> (
-                <Link href={`/${link.name ==='dashboard'?'/':link.name}`}  key={link.id}>
+                <Link href={`/${link.name}`}  key={link.id}>
                 <li className='sidelinks'>
                   <div className='flex space-x-2 items-center capitalize'>
                     {link.icon}&nbsp;

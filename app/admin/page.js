@@ -49,7 +49,8 @@ export default function Admin() {
                     <p className='text-lg font-bold'>$1,000</p>
                   </div>  
                   <div className='flex'>
-                    <Image className='max-h-14' src='/us.png' width={50} height={50} alt='us flag'/>  
+                    <div></div>
+                    <Image className='max-h-14' src='/us.png' width={50} height={36} alt='us flag'/>  
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 self-center">
                       <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                     </svg>
@@ -107,10 +108,6 @@ export default function Admin() {
                 </div>
             </div>  
         </div>
-    
-
-        
-
       </div>
     </main>
   );

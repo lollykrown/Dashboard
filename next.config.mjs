@@ -15,6 +15,15 @@ const nextConfig = {
         },
       ],
     },
+    async redirects() {
+      return [
+        {
+          source: '/e-commerce',
+          destination: '/',
+          permanent: true,
+        }
+      ]
+    },
 };
 
 export default nextConfig;

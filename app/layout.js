@@ -1,7 +1,13 @@
-import { Inter } from 'next/font/google';
+import { Public_Sans } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const public_sans = Public_Sans({
+  weight: ['400', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  style: ['normal', 'italic'],
+  variable: '--font-sans',
+})
 
 export const metadata = {
   title: 'Robust Dasboard',
@@ -10,10 +16,10 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={public_sans.className}>
       <body>
         {/* <Navbar /> */}
-        <main className="">{children}</main>
+        {children}
         {/* <Footer /> */}
       </body>
     </html>

@@ -1,11 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react'
 
 import Sidebar from '@/components/Sidebar';
 import { SBarChart, CurlyLineChart } from '@/utils/charts';
-import products from '../../utils/products'
-import users from '../../utils/users'
+import products from '@/utils/products'
+import users from '@/utils/users'
 
 
 export default function Report() {
@@ -23,7 +22,7 @@ export default function Report() {
             <svg className="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
               <path fillRule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 13.5a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V16.5a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V16.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
             </svg>
-            <p className='text-sm text-slate-500 mx-1'>Download</p>
+            <p className='text-sm text-slate-500 mx-1 cursor-pointer hover:font-semibold'>Download</p>
           </div>
         </div>
         <hr className='my-4'/>
@@ -199,5 +198,4 @@ export default function Report() {
     </main>
   );
 }
-
 

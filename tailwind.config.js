@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-sans)'],
+      },
       colors: {
         'btncolor-900': '#453e90',
         'btncolor-800': '#685dd8',

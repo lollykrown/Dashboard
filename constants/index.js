@@ -73,7 +73,7 @@ export const SIDE_LINKS = [
     
   ];
 
-export const DESIGNS = [
+  export const DESIGNS = [
     { 
         id: 1,
         icon: (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-5">

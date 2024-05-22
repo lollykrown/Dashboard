@@ -1,25 +1,16 @@
 import * as React from "react";
-
-
 import { Table, Header, HeaderRow, Body, Row, HeaderCell, Cell, } from "@table-library/react-table-library/table";
-  
 import { useTheme } from "@table-library/react-table-library/theme";
-  
 import { useSort, HeaderCellSort, } from "@table-library/react-table-library/sort";
-
 import {
   useRowSelect,
   HeaderCellSelect,
   CellSelect,
   SelectClickTypes,
   SelectTypes,} from "@table-library/react-table-library/select";
-
-
 import { useRouter } from 'next/navigation'
-
 import moment from "moment";
 moment().format(); 
-
 
 const THEME = {
   Table: `height:auto`,
@@ -320,7 +311,8 @@ const nodes = [
     ],
   },
 ]; 
- const TableT = () => {
+
+const TableT = () => {
   const router = useRouter();
 
     let data = { nodes };

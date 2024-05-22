@@ -50,7 +50,7 @@ export default function Sales() {
           </div>
           <div className='bg-white rounded-xl col-span-7 md:col-span-2 p-3'>
             <p className='font-bold mb-4'>Sales Mapping by Country</p>
-            <MapChart />
+            {/* <MapChart /> */}
           </div>
           <div className='bg-white rounded-xl col-span-7 md:col-span-2 '>
             gf

@@ -4,9 +4,9 @@ import Link from 'next/link';
 import React from 'react'
 import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } from '../utils/charts'
 
-import products from '../utils/products'
+import products from '@/utils/products'
 import Sidebar from '@/components/Sidebar';
-import { Tabs, Tab } from '../utils/tabs'
+import { Tabs, Tab } from '@/utils/tabs'
 import { TAB_DATA } from '@/constants';
 import {TableT} from '@/utils/table';
 import { useRouter } from 'next/navigation'
