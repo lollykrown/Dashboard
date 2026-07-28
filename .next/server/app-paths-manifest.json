@@ -1,13 +1,4 @@
 {
-  "/admin/page": "app/admin/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js",
-  "/report/page": "app/report/page.js",
-  "/sales/page": "app/sales/page.js",
-  "/dashboard/page": "app/dashboard/page.js",
-  "/notifications/page": "app/notifications/page.js",
-  "/users/page": "app/users/page.js",
-  "/settings/page": "app/settings/page.js",
-  "/invoices/page": "app/invoices/page.js",
-  "/analytics/page": "app/analytics/page.js"
+  "/page": "app/page.js"
 }
