@@ -6,6 +6,7 @@ import { ProgressBar, LineChart, Circle, BarChart, CurlyLineChart, RBarChart } f
 
 import products from '@/utils/products'
 import Sidebar from '@/components/Sidebar';
+import ProductImage from '@/components/ProductImage';
 import { Tabs, Tab } from '@/utils/tabs'
 import { TAB_DATA } from '@/constants';
 import {TableT} from '@/utils/table';
@@ -216,7 +217,7 @@ export default function Home() {
             {products.slice(0,7).map(p=>(
             <div className='flex justify-between my-4' key={p.id}>
               <div className='flex'>
-                <Image className='h-8 w-8 mr-2' src={p.image} width={48} height ={48}  alt='product' />
+                <ProductImage className='h-8 w-8 mr-2' src={p.image} width={48} height={48} alt='product' />
                 <div>
                   <p className='text-xs  text-slate-600'>{p.title.length>22?p.title.substring(0,12):p.title} </p>
                   <p className='text-[11px] text-slate-400 mx-0'>Item: {p.category}</p>

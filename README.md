@@ -34,3 +34,21 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Product data
+
+Product data lives in `utils/products.json` (static, no runtime API calls). Two helper scripts manage it:
+
+```bash
+# Switch the dataset to DummyJSON (stable CDN-hosted images) — recommended
+node scripts/fetch-products.mjs
+
+# Optional variants
+node scripts/fetch-products.mjs --limit 20
+node scripts/fetch-products.mjs --category furniture   # e.g. beauty, fragrances, groceries
+
+# Health-check the current image URLs and patch any dead ones to the local placeholder
+node scripts/check-images.mjs
+```
+
+Remote images fall back to `/product-placeholder.svg` automatically if they ever fail to load (see `components/ProductImage.js`). Once `fetch-products.mjs` has been run, the legacy `fakestoreapi.com` entry in `next.config.mjs` can be removed.

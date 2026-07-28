@@ -398,13 +398,17 @@ const Lines = () => {
   };
   return <Line options={options} data={data} />;
 }
-const PieChart = () => {
+const PieChart = ({
+  labels = ['System', 'Your Files', 'Others'],
+  values = [25, 60, 15],
+  title = 'Your Pie Chart',
+} = {}) => {
   const data = {
-    labels: ['System', 'Your Files', 'Others'],
+    labels,
     datasets: [
       {
-        label: '# of Votes',
-        data: [25, 60, 15],
+        label: 'Share',
+        data: values,
         backgroundColor: [
           'rgb(106, 210, 255)',
           'rgb(67, 24, 255)',          
@@ -432,8 +436,8 @@ const PieChart = () => {
         }
       },
       title: {
-        display: true,
-        text: 'Your Pie Chart',
+        display: !!title,
+        text: title,
         align: 'start',
         font: {
           size: 18
@@ -576,6 +580,179 @@ const GoogleLineChart = () => {
     />
   );
 }
+
+const TotalRevenueChart = () => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, font: { size: 11 } } },
+      tooltip: { enabled: true },
+    },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: '#F1F0FE' }, ticks: { font: { size: 11 }, callback: (v) => `$${v}k` } },
+    },
+  };
+  const data = {
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    datasets: [
+      {
+        label: 'Online Sales',
+        data: [14, 17, 6, 16, 12, 17, 21],
+        backgroundColor: '#0095FF',
+        borderRadius: 4,
+        barPercentage: 0.6,
+        categoryPercentage: 0.5,
+      },
+      {
+        label: 'Offline Sales',
+        data: [12, 11, 22, 6, 11, 13, 11],
+        backgroundColor: '#00E096',
+        borderRadius: 4,
+        barPercentage: 0.6,
+        categoryPercentage: 0.5,
+      },
+    ],
+  };
+  return <div className='h-56'><Bar data={data} options={options} /></div>;
+};
+
+const CustomerSatisfactionChart = () => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { enabled: true } },
+    scales: { x: { display: false }, y: { display: false } },
+    elements: { point: { radius: 0, hoverRadius: 4 } },
+  };
+  const labels = ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7'];
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Last Month',
+        data: [2840, 3120, 2650, 3400, 3050, 3600, 3004],
+        borderColor: '#0095FF',
+        backgroundColor: 'rgba(0, 149, 255, 0.15)',
+        fill: true,
+        tension: 0.4,
+      },
+      {
+        label: 'This Month',
+        data: [3200, 3550, 3300, 4100, 3800, 4400, 4504],
+        borderColor: '#07E098',
+        backgroundColor: 'rgba(7, 224, 152, 0.15)',
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+  return <div className='h-36'><Line data={data} options={options} /></div>;
+};
+
+const TargetRealityChart = () => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { enabled: true } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 10 } } },
+      y: { display: false },
+    },
+  };
+  const data = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    datasets: [
+      {
+        label: 'Reality Sales',
+        data: [8.2, 7.5, 8.8, 7.9, 9.3, 8.5, 9.1],
+        backgroundColor: '#4AB58E',
+        borderRadius: 4,
+        barPercentage: 0.6,
+        categoryPercentage: 0.6,
+      },
+      {
+        label: 'Target Sales',
+        data: [10.5, 11.2, 10.8, 11.9, 12.1, 11.6, 12.4],
+        backgroundColor: '#FFCF00',
+        borderRadius: 4,
+        barPercentage: 0.6,
+        categoryPercentage: 0.6,
+      },
+    ],
+  };
+  return <div className='h-36'><Bar data={data} options={options} /></div>;
+};
+
+const VolumeServiceChart = () => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { display: false }, tooltip: { enabled: true } },
+    scales: {
+      x: { stacked: true, display: false },
+      y: { stacked: true, display: false },
+    },
+  };
+  const data = {
+    labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6'],
+    datasets: [
+      {
+        label: 'Services',
+        data: [420, 380, 500, 460, 550, 480],
+        backgroundColor: '#0095FF',
+        borderRadius: 4,
+        barPercentage: 0.5,
+      },
+      {
+        label: 'Volume',
+        data: [700, 640, 820, 760, 900, 810],
+        backgroundColor: '#00E096',
+        borderRadius: 4,
+        barPercentage: 0.5,
+      },
+    ],
+  };
+  return <div className='h-36'><Bar data={data} options={options} /></div>;
+};
+
+const AnalyticsAreaChart = () => {
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: { legend: { position: 'bottom', labels: { usePointStyle: true, boxWidth: 8, font: { size: 11 } } } },
+    scales: {
+      x: { grid: { display: false }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: '#F1F0FE' }, ticks: { font: { size: 11 } } },
+    },
+    elements: { point: { radius: 0, hoverRadius: 4 } },
+  };
+  const labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Page Views',
+        data: [3200, 4100, 3800, 5100, 4900, 6200, 5800, 6800, 6400, 7500, 7100, 8200],
+        borderColor: '#7367f0',
+        backgroundColor: 'rgba(115, 103, 240, 0.12)',
+        fill: true,
+        tension: 0.4,
+      },
+      {
+        label: 'Sessions',
+        data: [2100, 2600, 2400, 3300, 3100, 4000, 3700, 4400, 4100, 4900, 4600, 5400],
+        borderColor: '#28c76f',
+        backgroundColor: 'rgba(40, 199, 111, 0.12)',
+        fill: true,
+        tension: 0.4,
+      },
+    ],
+  };
+  return <div className='h-72'><Line data={data} options={options} /></div>;
+};
+
 export {
   ProgressBar,
   LineChart,
@@ -588,7 +765,12 @@ export {
   PieChart,
   MapChart,
   GoogleLineChart,
-  GoogleTable
+  GoogleTable,
+  TotalRevenueChart,
+  CustomerSatisfactionChart,
+  TargetRealityChart,
+  VolumeServiceChart,
+  AnalyticsAreaChart
 }
 
 

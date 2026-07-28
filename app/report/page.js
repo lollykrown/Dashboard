@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react'
 
 import Sidebar from '@/components/Sidebar';
+import ProductImage from '@/components/ProductImage';
 import { SBarChart, CurlyLineChart } from '@/utils/charts';
 import products from '@/utils/products'
 import users from '@/utils/users'
@@ -92,7 +93,7 @@ export default function Report() {
           <div className='bg-white rounded-xl col-span-2 md:col-span-1 p-4'>
             <p className='text-sm font-bold mb-4 text-slate-500'>Weakest Topics </p>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[19].image} width={56} height={48} alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[19].image} width={56} height={48} alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Food Safety</p>
                 <progress className=''  value={54} max={100}> </progress>
@@ -100,7 +101,7 @@ export default function Report() {
               <p className='grow-0 self-end text-[12px] my-2'>54% Correct</p>
             </div>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[16].image} width={56} height={48} alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[16].image} width={56} height={48} alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Compliance Basics Procedures </p>
                 <progress className=''  value={52} max={100}> </progress>
@@ -108,7 +109,7 @@ export default function Report() {
               <p className='grow-0 self-end text-[12px] my-2'>52% Correct</p>
             </div>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[19].image} width={56} height={48}  alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[19].image} width={56} height={48}  alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Company Networking</p>
                 <progress className=''  value={36} max={100}> </progress>
@@ -119,7 +120,7 @@ export default function Report() {
           <div className='bg-white rounded-xl col-span-2 md:col-span-1 p-4'>
             <p className='text-sm font-bold mb-4 text-slate-500'>Strongest Topics </p>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[14].image} width={56} height={48}  alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[14].image} width={56} height={48}  alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Food Safety</p>
                 <progress className='gr-pro'  value={95} max={100}> </progress>
@@ -127,7 +128,7 @@ export default function Report() {
               <p className='grow-0 self-end text-[12px] my-2'>95% Correct</p>
             </div>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[11].image} width={56} height={48}  alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[11].image} width={56} height={48}  alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Compliance Basics Procedures </p>
                 <progress className='gr-pro'  value={92} max={100}> </progress>
@@ -135,7 +136,7 @@ export default function Report() {
               <p className='grow-0 self-end text-[12px] my-2'>92% Correct</p>
             </div>
             <div className='flex my-2 py-1'>
-                <Image className='grow-0 h-12 w-14 mr-2' src={products[6].image} width={56} height={48}  alt='product item'/>
+                <ProductImage className='grow-0 h-12 w-14 mr-2' src={products[6].image} width={56} height={48}  alt='product item'/>
               <div className='grow'>
                 <p className='text-sm'>Company Networking</p>
                 <progress className='gr-pro'  value={89} max={100}> </progress>

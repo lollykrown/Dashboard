@@ -10,6 +10,13 @@ const nextConfig = {
         },
         {
           protocol: 'https',
+          hostname: 'cdn.dummyjson.com',
+          pathname: '**',
+        },
+        {
+          // legacy — safe to remove once utils/products.json no longer
+          // references fakestoreapi (run: node scripts/fetch-products.mjs)
+          protocol: 'https',
           hostname: 'fakestoreapi.com',
           pathname: '**',
         },
